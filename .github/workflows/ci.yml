@@ -8,4 +8,4 @@ jobs:
       - uses: arduino/setup-arduino-cli@v2
       - run: arduino-cli core update-index --additional-urls https://espressif.github.io/arduino-esp32/package_esp32_index.json
       - run: arduino-cli core install esp32:esp32 --additional-urls https://espressif.github.io/arduino-esp32/package_esp32_index.json
-      - run: arduino-cli compile --fqbn esp32:esp32:esp32 --libraries BLE enth ghost-node.ino || arduino-cli compile --fqbn esp32:esp32:esp32 ghost-node.ino
+      - run: mkdir -p sketch/ghost-node && cp ghost-node.ino sketch/ghost-node/ghost-node.ino && arduino-cli compile --fqbn esp32:esp32:esp32 sketch/ghost-node
